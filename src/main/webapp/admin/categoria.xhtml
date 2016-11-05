@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<ui:define name="titulo">
+		Categorias
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		
+            <p:tabView>
+		
+                <p:tab title="Cadastrar">
+
+                    <h:form>
+
+                        <h:panelGrid>
+
+                                <h:outputLabel value="Denominação"/>
+                                <p:inputText value="#{categoriaMBean.categoria.denominacao}" 
+                                        required="true" 
+                                        requiredMessage="Campo Denominacao é obrigatório"
+                                        validatorMessage="Campo Denominacao nao pode ultrpassar 20 caracteres">
+                                        <f:validateLength maximum="20"/>
+                                </p:inputText>
+
+                                <h:outputLabel value=" . "/>
+
+                                <h:outputLabel value="Descrição"/>
+                                <p:inputTextarea 
+                                        value="#{categoriaMBean.categoria.descricao}"
+                                        rows="3" 
+                                        cols="50" 
+                                        counter="display" 
+                                        maxlength="150" 
+                                        counterTemplate="Restam {0} caracteres" 
+                                        autoResize="false" />
+                        <h:outputText id="display" />
+
+                        </h:panelGrid>
+
+                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{categoriaMBean.salvar}"/>
+                        <h:inputHidden value="#{categoriaMBean.categoria.id}"/>
+
+                    </h:form>
+
+                </p:tab>
+			
+			<p:tab title="Categorias">
+			
+                            <h:form>
+
+                                <p:dataTable var="categoria" filteredValue="#{categoriaMBean.categorias}" value="#{categoriaMBean.categorias}" scrollable="true">
+
+                                    <p:column headerText="Id" sortBy="#{categoria.id}">
+                                        <h:outputText value="#{categoria.id}" />
+                                    </p:column>
+
+                                    <p:column headerText="Denominação" sortBy="#{categoria.denominacao}" filterBy="#{categoria.denominacao}" filterValue="#{categoria.id}">
+                                        <h:outputText value="#{categoria.denominacao}" />
+                                    </p:column>
+
+                                    <p:column headerText="Descrição" sortBy="#{categoria.descricao}">
+                                        <h:outputText value="#{categoria.descricao}" />
+                                    </p:column>
+
+                                    <p:column headerText="Ação">
+                                        <p:commandButton icon="ui-icon-search" ajax="false" action="#{categoriaMBean.selecionar(categoria)}"/>
+                                        <p:commandButton icon="ui-icon-trash" ajax="false" action="#{categoriaMBean.deletar(categoria)}" onclick="return confirm('Deseja realmente Deletar?')"/>
+                                    </p:column>
+
+                                </p:dataTable>
+
+                            </h:form>
+			
+			</p:tab>
+			
+            </p:tabView>
+
+	</ui:define>
+
+</ui:composition>
