@@ -2,8 +2,6 @@ package br.senac.rn.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -20,10 +18,6 @@ public abstract class GenericDAO <T extends PersistDB> {
             manager = DataBase.getInstance().getEntityManager();
         }
         return manager;
-    }
-    
-    public void close() {
-//        factory.close();
     }
     
     private void change(T c, OperacaoDatabase op) {

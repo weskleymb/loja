@@ -3,10 +3,7 @@ package br.senac.rn.controller;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import br.senac.rn.dao.CategoriaDAO;
-import br.senac.rn.dao.DataBase;
-import br.senac.rn.dao.GenericDAO;
 import br.senac.rn.model.Categoria;
-import javax.annotation.PreDestroy;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean
@@ -15,11 +12,6 @@ public class CategoriaMBean extends AbstractController<Categoria> {
 
     private Categoria categoria = new Categoria();
     private List<Categoria> categorias;
-    
-    @PreDestroy
-    private void fechar() {
-        new CategoriaDAO().close();
-    }
 
     public Categoria getCategoria() {
         return categoria;
