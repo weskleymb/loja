@@ -6,8 +6,8 @@ import br.senac.rn.dao.ProdutoDAO;
 import br.senac.rn.model.Produto;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean
 @ViewScoped
+@ManagedBean(name = "produtoMBean")
 public class ProdutoMBean extends AbstractController<Produto> {
 	
     private Produto produto = new Produto();

@@ -5,9 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import br.senac.rn.dao.PersistDB;
+import java.io.Serializable;
 
 @Entity
-public class Produto implements PersistDB {
+public class Produto implements PersistDB, Serializable {
 	
     @Id
     @GeneratedValue

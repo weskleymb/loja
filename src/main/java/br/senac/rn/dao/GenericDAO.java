@@ -9,11 +9,11 @@ import javax.persistence.criteria.CriteriaQuery;
 
 public abstract class GenericDAO <T extends PersistDB> {
 	
-    protected EntityManager manager;
+    protected static EntityManager manager;
     
     public abstract Class<T> getClassType();
 
-    protected EntityManager getEm() {
+    protected static EntityManager getEm() {
         if (manager == null || !manager.isOpen()) {
             manager = DataBase.getInstance().getEntityManager();
         }

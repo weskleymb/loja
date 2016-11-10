@@ -6,16 +6,12 @@ import javax.persistence.Persistence;
 
 public class DataBase {
     
-    private final String conexao = "ConexaoDB";
     private static DataBase singleton = new DataBase();
-    private static EntityManagerFactory factory;
     private static EntityManager manager;
 
     private DataBase() {
-        if (factory == null || !factory.isOpen()) {
-            factory = Persistence.createEntityManagerFactory(conexao);
-            manager = factory.createEntityManager();
-        }
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ConexaoDB");
+        manager = factory.createEntityManager();
     }
 
     public static DataBase getInstance() {

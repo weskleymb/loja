@@ -4,9 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import br.senac.rn.dao.PersistDB;
+import java.io.Serializable;
 
 @Entity
-public class Categoria implements PersistDB {
+public class Categoria implements PersistDB, Serializable {
 	
     @Id
     @GeneratedValue

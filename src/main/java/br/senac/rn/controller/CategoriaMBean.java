@@ -6,8 +6,8 @@ import br.senac.rn.dao.CategoriaDAO;
 import br.senac.rn.model.Categoria;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean
 @ViewScoped
+@ManagedBean(name = "categoriaMBean")
 public class CategoriaMBean extends AbstractController<Categoria> {
 
     private Categoria categoria = new Categoria();

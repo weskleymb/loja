@@ -34,7 +34,7 @@
 
                                 <h:outputLabel value="Descrição"/>
                                 <p:inputTextarea 
-                                        value="#{categoriaMBean.categoria.descricao}"
+                                    value="#{categoriaMBean.categoria.descricao}"
                                         rows="3" 
                                         cols="50" 
                                         counter="display" 
@@ -45,7 +45,7 @@
 
                         </h:panelGrid>
 
-                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{categoriaMBean.salvar}"/>
+                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{categoriaService.salvar}"/>
                         <h:inputHidden value="#{categoriaMBean.categoria.id}"/>
 
                     </h:form>

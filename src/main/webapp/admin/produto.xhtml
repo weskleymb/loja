@@ -24,7 +24,7 @@
                         <h:panelGrid>
 
                                 <h:outputLabel value="Denominação"/>
-                                <p:inputText value="#{produtoMBean.produto.denominacao}" 
+                                <p:inputText value="#{produtoService.produto.denominacao}" 
                                         required="true" 
                                         requiredMessage="Campo Denominação é obrigatório"
                                         validatorMessage="Campo Denominacao nao pode ultrpassar 20 caracteres">
@@ -33,7 +33,7 @@
 
                                 <h:outputLabel value="Descrição"/>
                                 <p:inputTextarea 
-                                        value="#{produtoMBean.produto.descricao}"
+                                        value="#{produtoService.produto.descricao}"
                                         rows="3" 
                                         cols="50" 
                                         counter="display" 
@@ -43,13 +43,13 @@
                         <h:outputText id="display" />
 
                         <h:outputLabel value="Categoria"/>
-                        <p:selectOneMenu  id="selecionaCategoria" value="#{produtoMBean.produto.categoria}" converter="categoriaConverter" effect="drop">  
+                        <p:selectOneMenu  id="selecionaCategoria" value="#{produtoService.produto.categoria}" converter="categoriaConverter" effect="drop">  
                                 <f:selectItem itemLabel="Selecione a Categoria" />
-                                <f:selectItems value="#{categoriaMBean.categorias}" var="categoria" itemLabel="#{categoria.denominacao}" itemValue="#{categoria}" /> 
+                                <f:selectItems value="#{categoriaService.categorias}" var="categoria" itemLabel="#{categoria.denominacao}" itemValue="#{categoria}" /> 
                          </p:selectOneMenu>
 
                         <h:outputLabel value="Preço"/>
-                        <p:inputNumber value="#{produtoMBean.produto.preco}" 
+                        <p:inputNumber value="#{produtoService.produto.preco}" 
                                        symbol="R$ " 
                                        decimalSeparator="," 
                                        thousandSeparator="."
@@ -61,8 +61,8 @@
 
                         </h:panelGrid>
 
-                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{produtoMBean.salvar}"/>
-                        <h:inputHidden value="#{produtoMBean.produto.id}"/>
+                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{produtoService.salvar}"/>
+                        <h:inputHidden value="#{produtoService.produto.id}"/>
                     </h:form>
                 </p:tab>
 
@@ -70,7 +70,7 @@
                         
                         <h:form>
                             
-                            <p:dataTable var="produto" value="#{produtoMBean.produtos}" filteredValue="#{produtoMBean.produtos}" scrollable="true">
+                            <p:dataTable var="produto" value="#{produtoService.produtos}" filteredValue="#{produtoService.produtos}" scrollable="true">
                             
                                 <p:column headerText="Id" sortBy="#{produto.id}">
                                     <h:outputText value="#{produto.id}" />
@@ -95,8 +95,8 @@
                                 </p:column>
                                 
                                 <p:column headerText="Ação">
-                                    <p:commandButton icon="ui-icon-search" ajax="false" action="#{produtoMBean.selecionar(produto)}"/>
-                                    <p:commandButton icon="ui-icon-trash" ajax="false" action="#{produtoMBean.deletar(produto)}" onclick="return confirm('Deseja realmente Deletar?')"/>
+                                    <p:commandButton icon="ui-icon-search" ajax="false" action="#{produtoService.selecionar(produto)}"/>
+                                    <p:commandButton icon="ui-icon-trash" ajax="false" action="#{produtoService.deletar(produto)}" onclick="return confirm('Deseja realmente Deletar?')"/>
                                 </p:column>
                             
                             </p:dataTable>
