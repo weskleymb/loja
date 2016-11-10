@@ -17,5 +17,9 @@ public class CategoriaFacade {
     public List<Categoria> findAll() {
         return dao.findAll();
     }
+    
+    public void create(Categoria categoria) {
+        dao.create(categoria);
+    }
 	
 }
