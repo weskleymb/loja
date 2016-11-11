@@ -1,5 +1,6 @@
 package br.senac.rn.controller;
 
+import br.senac.rn.util.AbstractController;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import br.senac.rn.dao.ProdutoDAO;

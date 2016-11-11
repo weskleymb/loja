@@ -1,4 +1,4 @@
-package br.senac.rn.dao;
+package br.senac.rn.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

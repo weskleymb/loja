@@ -3,7 +3,7 @@ package br.senac.rn.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import br.senac.rn.dao.PersistDB;
+import br.senac.rn.util.PersistDB;
 import java.io.Serializable;
 
 @Entity

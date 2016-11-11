@@ -2,17 +2,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	template="/template/template.xhtml"
-	xmlns:p="http://primefaces.org/ui">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="/template/template.xhtml"
+    xmlns:p="http://primefaces.org/ui">
 
 
-	<ui:define name="titulo">
-		Categorias
-	</ui:define>
+    <ui:define name="titulo">
+            Categorias
+    </ui:define>
 	
 	<ui:define name="conteudo">
 		
@@ -45,7 +46,7 @@
 
                         </h:panelGrid>
 
-                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{categoriaService.salvar}"/>
+                        <p:commandButton value="SALVAR" id="withIcon" icon="ui-icon-disk" ajax="false" action="#{categoriaMBean.salvar}"/>
                         <h:inputHidden value="#{categoriaMBean.categoria.id}"/>
 
                     </h:form>
@@ -56,13 +57,13 @@
 			
                             <h:form>
 
-                                <p:dataTable var="categoria" filteredValue="#{categoriaMBean.categorias}" value="#{categoriaMBean.categorias}" scrollable="true">
+                                <p:dataTable var="categoria" value="#{categoriaMBean.categorias}" scrollable="true">
 
                                     <p:column headerText="Id" sortBy="#{categoria.id}">
                                         <h:outputText value="#{categoria.id}" />
                                     </p:column>
 
-                                    <p:column headerText="Denominação" sortBy="#{categoria.denominacao}" filterBy="#{categoria.denominacao}" filterValue="#{categoria.id}">
+                                    <p:column headerText="Denominação" sortBy="#{categoria.denominacao}">
                                         <h:outputText value="#{categoria.denominacao}" />
                                     </p:column>
 

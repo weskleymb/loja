@@ -1,8 +1,8 @@
-package br.senac.rn.controller;
+package br.senac.rn.util;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import br.senac.rn.dao.PersistDB;
+import br.senac.rn.util.PersistDB;
 
 public class AbstractController<T extends PersistDB> {
 

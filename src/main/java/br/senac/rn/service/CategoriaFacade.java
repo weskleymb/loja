@@ -5,7 +5,7 @@ import br.senac.rn.dao.CategoriaDAO;
 import br.senac.rn.model.Categoria;
 import javax.jws.WebService;
 
-@WebService
+@WebService(name = "categoriaService")
 public class CategoriaFacade {
 
     private CategoriaDAO dao;
@@ -16,6 +16,10 @@ public class CategoriaFacade {
     
     public List<Categoria> findAll() {
         return dao.findAll();
+    }
+    
+    public Categoria findById(int id) {
+        return dao.findByPrimaryKey(id);
     }
     
     public void create(Categoria categoria) {

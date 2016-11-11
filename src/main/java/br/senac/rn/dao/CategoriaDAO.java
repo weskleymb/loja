@@ -1,5 +1,6 @@
 package br.senac.rn.dao;
 
+import br.senac.rn.util.GenericDAO;
 import br.senac.rn.model.Categoria;
 
 public class CategoriaDAO extends GenericDAO<Categoria> {
