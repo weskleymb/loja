@@ -6,12 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import br.senac.rn.util.PersistDB;
 import java.io.Serializable;
+import javax.persistence.GenerationType;
 
 @Entity
 public class Produto implements PersistDB, Serializable {
 	
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String denominacao;
     private String descricao;
@@ -22,20 +23,24 @@ public class Produto implements PersistDB, Serializable {
     public Produto() {}
 
     public Produto(int id) {
+        super();
         this.id = id;
     }
     
     public Produto(int id, String denominacao, String descricao, Double preco) {
+        super();
         this.id = id;
         this.denominacao = denominacao;
         this.descricao = descricao;
         this.preco = preco;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

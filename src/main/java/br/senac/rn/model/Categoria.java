@@ -5,12 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import br.senac.rn.util.PersistDB;
 import java.io.Serializable;
+import javax.persistence.GenerationType;
 
 @Entity
 public class Categoria implements PersistDB, Serializable {
 	
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String denominacao;
     private String descricao;
@@ -29,10 +30,12 @@ public class Categoria implements PersistDB, Serializable {
         this.descricao = descricao;
     }	
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
